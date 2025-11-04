@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo sobre CSS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Lenguaje CSS (Cascading Style Sheets)</h1>
+  </header>
+
+  <main>
+    <section class="bloque">
+      <h2>🎨 ¿Qué es CSS?</h2>
+      <p>
+        CSS significa <strong>Cascading Style Sheets</strong> o en español <em>Hojas de Estilo en Cascada</em>.  
+        Es el lenguaje que se usa para dar <u>apariencia y diseño visual</u> a los documentos HTML.  
+        Mientras que HTML define la estructura (títulos, párrafos, botones, imágenes, etc.),  
+        CSS controla cómo se ven esos elementos: sus colores, tamaños, bordes, posiciones, animaciones, y mucho más.
+      </p>
+      <p>
+        Fue creado en los años 90 para separar el contenido (HTML) del diseño visual,  
+        permitiendo modificar el estilo de un sitio completo sin tocar el código HTML.  
+        Gracias a CSS, un mismo documento HTML puede tener múltiples apariencias simplemente cambiando su hoja de estilos.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>🧩 ¿Cómo funciona CSS?</h2>
+      <p>
+        CSS utiliza un sistema de <strong>selectores</strong> y <strong>reglas</strong>.  
+        Cada selector indica qué elemento HTML se va a estilizar,  
+        y las reglas definen cómo debe verse ese elemento.  
+        Por ejemplo:
+      </p>
+
+      <pre>
+p {
+  color: red;
+  font-size: 18px;
+  text-align: center;
+}
+      </pre>
+
+      <p>
+        En este caso:
+        <ul>
+          <li><code>p</code> es el selector (aplica a todos los párrafos).</li>
+          <li><code>color: red;</code> cambia el color del texto a rojo.</li>
+          <li><code>font-size: 18px;</code> cambia el tamaño de la fuente.</li>
+          <li><code>text-align: center;</code> centra el texto.</li>
+        </ul>
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>🖌️ Tipos de selectores</h2>
+      <p>
+        Los selectores son la base de CSS. Hay varios tipos que permiten aplicar estilos a diferentes grupos de elementos:
+      </p>
+      <ul>
+        <li><strong>Selector de etiqueta:</strong> selecciona todas las etiquetas del mismo tipo. <br><code>h1 { color: blue; }</code></li>
+        <li><strong>Selector de clase:</strong> se usa con un punto “.” antes del nombre. <br><code>.boton { background: red; }</code></li>
+        <li><strong>Selector de ID:</strong> se usa con el símbolo “#”. <br><code>#titulo { font-size: 30px; }</code></li>
+        <li><strong>Selector universal:</strong> selecciona todos los elementos del documento. <br><code>* { margin: 0; }</code></li>
+        <li><strong>Selectores combinados:</strong> permiten aplicar estilos a elementos dentro de otros. <br><code>div p { color: white; }</code></li>
+      </ul>
+    </section>
+
+    <section class="bloque">
+      <h2>🏗️ La cascada y la herencia</h2>
+      <p>
+        La palabra “cascading” (en cascada) hace referencia al modo en que los estilos se aplican  
+        cuando hay múltiples reglas que afectan a un mismo elemento.  
+        El navegador decide cuál usar basándose en tres factores principales:
+      </p>
+      <ol>
+        <li><strong>Especificidad:</strong> los estilos más específicos tienen prioridad.</li>
+        <li><strong>Orden:</strong> si dos reglas tienen la misma prioridad, se aplica la última.</li>
+        <li><strong>Herencia:</strong> algunos estilos se heredan automáticamente, como el color o la fuente.</li>
+      </ol>
+      <p>
+        Esto permite escribir CSS flexible, donde los estilos generales se aplican primero  
+        y luego se personalizan con reglas más precisas según sea necesario.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>📐 Propiedades más comunes</h2>
+      <p>
+        Estas son algunas de las propiedades más utilizadas en CSS:
+      </p>
+      <ul>
+        <li><code>color</code> — cambia el color del texto.</li>
+        <li><code>background-color</code> — define el color de fondo.</li>
+        <li><code>font-size</code> — controla el tamaño de la fuente.</li>
+        <li><code>margin</code> y <code>padding</code> — establecen el espacio exterior e interior de un elemento.</li>
+        <li><code>border</code> — agrega un borde alrededor del elemento.</li>
+        <li><code>display</code> — controla cómo se muestra el elemento (bloque, inline, flex, grid, etc.).</li>
+        <li><code>position</code> — define la posición en la página (static, relative, absolute, fixed, sticky).</li>
+        <li><code>width</code> y <code>height</code> — determinan el tamaño del elemento.</li>
+      </ul>
+    </section>
+
+    <section class="bloque">
+      <h2>🎬 Animaciones y transiciones</h2>
+      <p>
+        CSS también permite crear efectos visuales y animaciones sin necesidad de JavaScript.  
+        Por ejemplo, puedes hacer que un botón cambie de color suavemente cuando el cursor pasa encima:
+      </p>
+
+      <pre>
+.boton {
+  background: blue;
+  transition: background 0.3s ease;
+}
+
+.boton:hover {
+  background: green;
+}
+      </pre>
+
+      <p>
+        Las animaciones se pueden definir con <code>@keyframes</code>, que permiten mover, rotar o cambiar colores de forma continua.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>🧱 Diseño con Flexbox y Grid</h2>
+      <p>
+        En versiones modernas de CSS se incluyen herramientas potentes para organizar los elementos en la página:
+      </p>
+      <ul>
+        <li><strong>Flexbox:</strong> facilita alinear y distribuir elementos en una sola dirección (horizontal o vertical).</li>
+        <li><strong>CSS Grid:</strong> permite crear estructuras más complejas de filas y columnas, como si fuera una cuadrícula.</li>
+      </ul>
+      <p>
+        Estas herramientas sustituyen muchos métodos antiguos basados en tablas o floats y hacen el diseño web mucho más limpio.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>🧠 Conclusión</h2>
+      <p>
+        CSS transforma el contenido simple de HTML en experiencias visuales atractivas.  
+        Es el lenguaje del diseño en la web, y dominarlo te permite controlar cada detalle del aspecto de tu sitio.  
+        Desde colores, animaciones y fuentes, hasta layouts complejos, CSS es esencial para cualquier desarrollador frontend.
+      </p>
+      <p>
+        Junto a HTML y JavaScript, forma la <strong>trinidad del desarrollo web moderno</strong>.  
+        Aprender CSS te da el poder de convertir una página vacía en una obra visual que refleja tu estilo y creatividad.
+      </p>
+    </section>
+
+    <a href="C:/Users/Gateway/Desktop/paginas/studios/principal.html" class="boton">⬅ Volver a la página principal</a>
+  </main>
+</body>
+</html>

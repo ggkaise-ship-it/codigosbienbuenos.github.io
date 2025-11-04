@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo sobre JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Lenguaje JavaScript (JS)</h1>
+  </header>
+
+  <main>
+    <section class="bloque">
+      <h2>⚡ ¿Qué es JavaScript?</h2>
+      <p>
+        <strong>JavaScript</strong> es un lenguaje de programación que permite agregar <em>interactividad, dinamismo y lógica</em> a las páginas web.  
+        Mientras que <strong>HTML</strong> estructura el contenido y <strong>CSS</strong> define su apariencia,  
+        JavaScript se encarga de hacer que la página “cobre vida”.  
+      </p>
+      <p>
+        Con JavaScript puedes hacer cosas como:
+      </p>
+      <ul>
+        <li>Detectar cuándo un usuario hace clic en un botón o escribe algo.</li>
+        <li>Cambiar el contenido de una página sin recargarla.</li>
+        <li>Mostrar animaciones, juegos o efectos visuales.</li>
+        <li>Conectarte con servidores para recibir datos en tiempo real.</li>
+      </ul>
+      <p>
+        JavaScript fue creado en 1995 por <strong>Brendan Eich</strong> en solo 10 días,  
+        y con el tiempo se ha convertido en uno de los lenguajes más importantes del mundo.  
+        Hoy no solo se usa en páginas web, sino también en aplicaciones móviles, de escritorio y hasta en servidores.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>📜 ¿Cómo se usa JavaScript?</h2>
+      <p>
+        Puedes usar JavaScript de tres maneras:
+      </p>
+      <ol>
+        <li>🔹 Escribiendo código dentro de una etiqueta <code>&lt;script&gt;</code> en el mismo archivo HTML.</li>
+        <li>🔹 Escribiendo el código directamente en la consola del navegador.</li>
+        <li>🔹 Creando un archivo externo <code>.js</code> y enlazándolo al HTML con <code>&lt;script src="archivo.js"&gt;&lt;/script&gt;</code>.</li>
+      </ol>
+
+      <p>Ejemplo básico de uso:</p>
+
+      <pre>
+&lt;button onclick="saludar()"&gt;Haz clic aquí&lt;/button&gt;
+
+&lt;script&gt;
+function saludar() {
+  alert("¡Hola desde JavaScript!");
+}
+&lt;/script&gt;
+      </pre>
+    </section>
+
+    <section class="bloque">
+      <h2>🔢 Variables y tipos de datos</h2>
+      <p>
+        Las <strong>variables</strong> se usan para guardar información.  
+        En JavaScript se declaran con <code>let</code>, <code>const</code> o <code>var</code>.  
+        Ejemplo:
+      </p>
+      <pre>
+let nombre = "Carlos";
+const edad = 20;
+var activo = true;
+      </pre>
+      <p>
+        JavaScript tiene varios tipos de datos:
+      </p>
+      <ul>
+        <li><strong>String</strong> — texto, como "Hola".</li>
+        <li><strong>Number</strong> — números enteros o decimales.</li>
+        <li><strong>Boolean</strong> — valores lógicos (true o false).</li>
+        <li><strong>Array</strong> — listas de datos, como <code>[1, 2, 3]</code>.</li>
+        <li><strong>Object</strong> — estructuras con propiedades, como <code>{nombre: "Ana", edad: 25}</code>.</li>
+      </ul>
+    </section>
+
+    <section class="bloque">
+      <h2>🧠 Condicionales y bucles</h2>
+      <p>
+        Las condicionales sirven para ejecutar diferentes acciones según una condición.  
+        Ejemplo:
+      </p>
+
+      <pre>
+let edad = 18;
+
+if (edad >= 18) {
+  console.log("Eres mayor de edad");
+} else {
+  console.log("Eres menor de edad");
+}
+      </pre>
+
+      <p>
+        Los bucles permiten repetir acciones varias veces. Por ejemplo:
+      </p>
+
+      <pre>
+for (let i = 1; i &lt;= 5; i++) {
+  console.log("Número " + i);
+}
+      </pre>
+    </section>
+
+    <section class="bloque">
+      <h2>📦 Funciones</h2>
+      <p>
+        Las <strong>funciones</strong> son bloques de código que ejecutan una tarea específica.  
+        Puedes reutilizarlas en cualquier parte del programa:
+      </p>
+
+      <pre>
+function sumar(a, b) {
+  return a + b;
+}
+
+let resultado = sumar(5, 3);
+console.log("La suma es: " + resultado);
+      </pre>
+
+      <p>
+        También puedes crear funciones anónimas o usar funciones flecha:
+      </p>
+
+      <pre>
+const multiplicar = (a, b) => a * b;
+console.log(multiplicar(4, 2));
+      </pre>
+    </section>
+
+    <section class="bloque">
+      <h2>🧩 Manipulación del DOM</h2>
+      <p>
+        El <strong>DOM</strong> (Document Object Model) es la representación interna de una página HTML en forma de árbol.  
+        JavaScript puede acceder, modificar o eliminar cualquier elemento del DOM para cambiar la página en tiempo real.
+      </p>
+
+      <pre>
+&lt;h1 id="titulo"&gt;Texto original&lt;/h1&gt;
+&lt;button onclick="cambiarTexto()"&gt;Cambiar&lt;/button&gt;
+
+&lt;script&gt;
+function cambiarTexto() {
+  document.getElementById("titulo").innerText = "Texto cambiado con JavaScript!";
+}
+&lt;/script&gt;
+      </pre>
+    </section>
+
+    <section class="bloque">
+      <h2>🌐 JavaScript moderno</h2>
+      <p>
+        Con el tiempo, JavaScript ha evolucionado mucho.  
+        La versión moderna (ES6 y posteriores) incluye características como:
+      </p>
+      <ul>
+        <li><strong>Plantillas literales</strong> con <code>`texto ${variable}`</code></li>
+        <li><strong>Clases</strong> para programar de forma orientada a objetos</li>
+        <li><strong>Promesas</strong> y <strong>async/await</strong> para manejar procesos asíncronos</li>
+        <li><strong>Módulos</strong> con <code>import</code> y <code>export</code></li>
+      </ul>
+      <p>
+        Gracias a esto, JavaScript ya no se limita solo al navegador: también se usa en servidores (Node.js),  
+        en inteligencia artificial (TensorFlow.js) y en desarrollo de apps móviles (React Native).
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>🏁 Conclusión</h2>
+      <p>
+        JavaScript es el lenguaje que hace posible la web interactiva.  
+        Aprenderlo te permitirá crear animaciones, formularios dinámicos, juegos, e incluso aplicaciones completas.  
+        Es un lenguaje versátil, presente en prácticamente todos los sitios modernos.
+      </p>
+      <p>
+        Junto con HTML y CSS, forma el corazón de Internet.  
+        Si dominas JavaScript, podrás construir experiencias que respondan a cada acción del usuario  
+        y crear sitios realmente vivos y únicos.
+      </p>
+    </section>
+
+    <a href="C:/Users/Gateway/Desktop/paginas/studios/principal.html" class="boton">⬅ Volver a la página principal</a>
+  </main>
+</body>
+</html>

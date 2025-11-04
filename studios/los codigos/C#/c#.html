@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo sobre C#</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Lenguaje C# (C Sharp)</h1>
+  </header>
+
+  <main>
+    <section class="bloque">
+      <h2>⚙️ ¿Qué es C#?</h2>
+      <p>
+        <strong>C#</strong> (pronunciado “C Sharp”) es un lenguaje de programación moderno, potente y fácil de aprender,  
+        creado por <strong>Microsoft</strong> en el año 2000 como parte de su plataforma .NET.  
+        Combina la eficiencia del lenguaje C++ con la simplicidad de Java,  
+        ofreciendo un equilibrio perfecto entre rendimiento y facilidad de uso.
+      </p>
+      <p>
+        Hoy en día, C# se utiliza para desarrollar una gran variedad de aplicaciones:  
+        desde programas de escritorio, páginas web, y aplicaciones móviles, hasta videojuegos,  
+        especialmente con el motor <strong>Unity</strong>, donde C# es el lenguaje principal.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>📘 Características principales de C#</h2>
+      <ul>
+        <li>✅ <strong>Tipado fuerte</strong> — cada variable tiene un tipo definido (int, float, string, etc.).</li>
+        <li>✅ <strong>Orientado a objetos</strong> — usa clases, herencia y encapsulación.</li>
+        <li>✅ <strong>Seguro y estable</strong> — evita errores comunes como acceso a memoria indebida.</li>
+        <li>✅ <strong>Multiplataforma</strong> — gracias a .NET, funciona en Windows, Linux y macOS.</li>
+        <li>✅ <strong>Compatible con Unity</strong> — el motor más popular para crear videojuegos 2D y 3D.</li>
+      </ul>
+    </section>
+
+    <section class="bloque">
+      <h2>💡 Estructura básica de un programa en C#</h2>
+      <p>
+        Todo programa en C# comienza con una clase principal y un método llamado <code>Main()</code>,  
+        que es el punto de entrada del programa. Ejemplo:
+      </p>
+
+      <pre>
+using System;
+
+class Program {
+    static void Main() {
+        Console.WriteLine("¡Hola Mundo desde C#!");
+    }
+}
+      </pre>
+
+      <p>
+        <strong>Explicación:</strong><br>
+        🔹 <code>using System;</code> importa el espacio de nombres con funciones básicas, como <code>Console.WriteLine()</code>.<br>
+        🔹 <code>class Program</code> define una clase (todo en C# ocurre dentro de clases).<br>
+        🔹 <code>Main()</code> es el método que se ejecuta al iniciar el programa.<br>
+        🔹 <code>Console.WriteLine()</code> imprime texto en la consola.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>🔢 Variables y tipos de datos</h2>
+      <p>
+        C# tiene distintos tipos de datos según la información que quieras guardar:
+      </p>
+
+      <pre>
+int edad = 25;            // Número entero
+float altura = 1.75f;     // Número decimal (con f al final)
+string nombre = "Carlos"; // Texto
+bool activo = true;       // Verdadero o falso
+char inicial = 'C';       // Carácter individual
+      </pre>
+
+      <p>
+        Puedes combinar variables en mensajes fácilmente:
+      </p>
+      <pre>
+Console.WriteLine($"Hola {nombre}, tienes {edad} años.");
+      </pre>
+    </section>
+
+    <section class="bloque">
+      <h2>🧠 Condicionales y bucles</h2>
+      <p>
+        C# permite tomar decisiones con <strong>if</strong> y repetir acciones con <strong>for</strong> o <strong>while</strong>:
+      </p>
+
+      <pre>
+int vidas = 3;
+
+if (vidas > 0) {
+    Console.WriteLine("Sigues con vida");
+} else {
+    Console.WriteLine("Game Over");
+}
+
+for (int i = 1; i <= 5; i++) {
+    Console.WriteLine($"Nivel {i} completado");
+}
+      </pre>
+
+      <p>
+        Los bucles son muy usados en juegos, por ejemplo, para generar enemigos o sumar puntos cada frame.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>📦 Funciones y métodos</h2>
+      <p>
+        Las <strong>funciones</strong> (o métodos) permiten organizar el código en bloques reutilizables:
+      </p>
+
+      <pre>
+void Saludar(string nombre) {
+    Console.WriteLine($"Hola {nombre}");
+}
+
+Saludar("Ana");
+Saludar("Pedro");
+      </pre>
+
+      <p>
+        También puedes hacer que una función devuelva un valor:
+      </p>
+
+      <pre>
+int Sumar(int a, int b) {
+    return a + b;
+}
+
+int resultado = Sumar(4, 5);
+Console.WriteLine($"La suma es {resultado}");
+      </pre>
+    </section>
+
+    <section class="bloque">
+      <h2>🏗️ Programación orientada a objetos (POO)</h2>
+      <p>
+        C# está diseñado para la <strong>programación orientada a objetos</strong>, lo que significa que puedes crear  
+        clases que representen cosas del mundo real: jugadores, enemigos, armas, etc.
+      </p>
+
+      <pre>
+class Jugador {
+    public string nombre;
+    public int vida;
+
+    public Jugador(string n, int v) {
+        nombre = n;
+        vida = v;
+    }
+
+    public void Atacar() {
+        Console.WriteLine($"{nombre} realiza un ataque!");
+    }
+}
+
+Jugador player = new Jugador("Leo", 100);
+player.Atacar();
+      </pre>
+
+      <p>
+        En Unity, esta estructura es muy común: cada objeto tiene un script C# con variables y funciones  
+        que controlan su comportamiento.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>🎮 Uso de C# en Unity</h2>
+      <p>
+        En Unity, C# se utiliza para crear scripts que se asocian a GameObjects.  
+        Cada script hereda de la clase <code>MonoBehaviour</code>, que permite usar eventos especiales:
+      </p>
+
+      <pre>
+using UnityEngine;
+
+public class PlayerMovement : MonoBehaviour {
+    public float speed = 5f;
+
+    void Update() {
+        float move = Input.GetAxis("Horizontal");
+        transform.Translate(move * speed * Time.deltaTime, 0, 0);
+    }
+}
+      </pre>
+
+      <p>
+        🔹 <code>Update()</code> se ejecuta cada frame, perfecto para controles o animaciones.<br>
+        🔹 <code>Input.GetAxis()</code> detecta movimiento con teclado o mando.<br>
+        🔹 <code>transform.Translate()</code> mueve el objeto en la escena.<br>
+        🔹 <code>Time.deltaTime</code> hace que el movimiento sea uniforme, sin importar la velocidad del PC.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>🧩 Estructuras y listas</h2>
+      <p>
+        C# también incluye estructuras avanzadas como <strong>arrays</strong> y <strong>listas</strong> dinámicas:
+      </p>
+
+      <pre>
+string[] frutas = {"Manzana", "Pera", "Uva"};
+foreach (string f in frutas) {
+    Console.WriteLine(f);
+}
+
+using System.Collections.Generic;
+List<int> puntos = new List<int>();
+puntos.Add(10);
+puntos.Add(20);
+puntos.Add(30);
+      </pre>
+    </section>
+
+    <section class="bloque">
+      <h2>🚀 Ventajas de C#</h2>
+      <ul>
+        <li>✅ Rápido y eficiente.</li>
+        <li>✅ Sintaxis limpia y moderna.</li>
+        <li>✅ Soporta programación orientada a objetos.</li>
+        <li>✅ Excelente integración con Unity y Visual Studio.</li>
+        <li>✅ Ideal tanto para principiantes como para proyectos grandes.</li>
+      </ul>
+    </section>
+
+    <section class="bloque">
+      <h2>🏁 Conclusión</h2>
+      <p>
+        C# es un lenguaje versátil, poderoso y fundamental en el desarrollo moderno.  
+        Ya sea para crear videojuegos en Unity, aplicaciones o herramientas de escritorio,  
+        aprender C# te abrirá las puertas a una gran cantidad de oportunidades en el mundo del desarrollo.  
+        Su claridad, estructura y capacidad lo hacen ideal tanto para quienes están empezando como para profesionales avanzados.
+      </p>
+      <p>
+        En resumen: <strong>HTML estructura, CSS embellece, JavaScript anima... y C# crea mundos completos.</strong> 🚀
+      </p>
+    </section>
+
+    <a href="C:/Users/Gateway/Desktop/paginas/studios/principal.html" class="boton">⬅ Volver a la página principal</a>
+  </main>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo sobre HTML</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Lenguaje HTML (HyperText Markup Language)</h1>
+  </header>
+
+  <main>
+    <section class="bloque">
+      <h2>📘 ¿Qué es HTML?</h2>
+      <p>
+        HTML significa <strong>HyperText Markup Language</strong>, que en español se traduce como <em>Lenguaje de Marcado de Hipertexto</em>.  
+        Es el lenguaje fundamental con el que se construyen las páginas web en Internet.  
+        Fue creado por <strong>Tim Berners-Lee</strong> a principios de los años 90, y desde entonces ha evolucionado hasta convertirse en el pilar básico de la web moderna.  
+        Su función principal es <u>definir la estructura del contenido</u>: los títulos, párrafos, imágenes, enlaces, listas, tablas, formularios y todo lo que vemos en una página web.
+      </p>
+      <p>
+        A diferencia de los lenguajes de programación, HTML no ejecuta operaciones lógicas ni matemáticas.  
+        En cambio, describe cómo está organizada la información dentro del navegador.  
+        Por eso se le llama un <strong>lenguaje de marcado</strong> y no de programación.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>🏗️ Estructura básica de un documento HTML</h2>
+      <p>
+        Un archivo HTML está formado por etiquetas que se escriben entre los signos <code>&lt;</code> y <code>&gt;</code>.  
+        Cada etiqueta tiene una función específica y, en la mayoría de los casos, se abre y se cierra, como por ejemplo:
+      </p>
+
+      <pre>
+&lt;p&gt;Esto es un párrafo&lt;/p&gt;
+&lt;h1&gt;Esto es un título&lt;/h1&gt;
+&lt;a href="https://ejemplo.com"&gt;Esto es un enlace&lt;/a&gt;
+      </pre>
+
+      <p>
+        A continuación puedes ver la estructura básica de cualquier página HTML:
+      </p>
+
+      <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mi primera página&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;¡Hola Mundo!&lt;/h1&gt;
+    &lt;p&gt;Este es un texto dentro del cuerpo del documento.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+      </pre>
+
+      <p>
+        🔹 <strong>&lt;!DOCTYPE html&gt;</strong> indica que el documento está escrito en HTML5.  
+        <br>🔹 <strong>&lt;html&gt;</strong> contiene todo el contenido de la página.  
+        <br>🔹 <strong>&lt;head&gt;</strong> incluye información que no se muestra directamente (como el título o los metadatos).  
+        <br>🔹 <strong>&lt;body&gt;</strong> contiene todo lo visible: texto, imágenes, botones, etc.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>🧩 Etiquetas más comunes</h2>
+      <ul>
+        <li><strong>&lt;h1&gt;...&lt;/h1&gt;</strong> — Título principal de la página.</li>
+        <li><strong>&lt;p&gt;...&lt;/p&gt;</strong> — Define un párrafo de texto.</li>
+        <li><strong>&lt;a&gt;</strong> — Crea enlaces a otras páginas.</li>
+        <li><strong>&lt;img&gt;</strong> — Inserta imágenes en la web.</li>
+        <li><strong>&lt;ul&gt;</strong> y <strong>&lt;li&gt;</strong> — Listas con viñetas.</li>
+        <li><strong>&lt;table&gt;</strong> — Crea tablas para organizar información.</li>
+        <li><strong>&lt;form&gt;</strong> — Define formularios para enviar datos.</li>
+        <li><strong>&lt;div&gt;</strong> y <strong>&lt;span&gt;</strong> — Agrupan o separan contenido.</li>
+      </ul>
+      <p>
+        Cada etiqueta puede tener <strong>atributos</strong>, que son configuraciones adicionales que modifican su comportamiento.  
+        Por ejemplo, el atributo <code>href</code> en un enlace define a qué dirección lleva:
+      </p>
+
+      <pre>
+&lt;a href="https://www.google.com"&gt;Ir a Google&lt;/a&gt;
+      </pre>
+    </section>
+
+    <section class="bloque">
+      <h2>🎨 Relación de HTML con CSS y JavaScript</h2>
+      <p>
+        Aunque HTML define la estructura, no controla los colores, fuentes o animaciones.  
+        Para eso se usa <strong>CSS</strong> (Cascading Style Sheets), que da estilo visual.  
+        Y si queremos que la página reaccione o cambie dinámicamente, entra en juego <strong>JavaScript</strong>.  
+      </p>
+      <p>
+        Puedes imaginarlo así:
+      </p>
+      <ul>
+        <li>💀 HTML = el esqueleto</li>
+        <li>🎨 CSS = la piel y el diseño</li>
+        <li>🧠 JavaScript = el cerebro y los movimientos</li>
+      </ul>
+    </section>
+
+    <section class="bloque">
+      <h2>📚 Conclusión</h2>
+      <p>
+        HTML es la base de toda página web y el punto de partida para cualquier desarrollador.  
+        Sin importar cuántas tecnologías nuevas aparezcan, todo lo que ves en Internet tiene HTML detrás.  
+        Aprenderlo bien te permite entender cómo funciona la web desde adentro, modificar sitios, crear interfaces,  
+        y trabajar junto con CSS y JavaScript para construir proyectos completos.
+      </p>
+      <p>
+        Si dominas HTML, podrás crear desde simples blogs hasta complejos paneles web o juegos en navegador.
+      </p>
+    </section>
+
+    <a href="C:/Users/Gateway/Desktop/paginas/studios/principal.html" class="boton">⬅ Volver a la página principal</a>
+  </main>
+</body>
+</html>
