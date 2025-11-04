@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo sobre GML (GameMaker Language)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Lenguaje GML (GameMaker Language)</h1>
+  </header>
+
+  <main>
+    <section class="bloque">
+      <h2>🎮 ¿Qué es GML?</h2>
+      <p>
+        <strong>GML</strong>, o <em>GameMaker Language</em>, es el lenguaje de programación utilizado dentro del motor <strong>GameMaker Studio</strong>,  
+        desarrollado por <strong>YoYo Games</strong>.  
+        Es un lenguaje diseñado específicamente para crear videojuegos de forma rápida, flexible y amigable para principiantes,  
+        sin dejar de ofrecer el poder suficiente para desarrolladores avanzados.
+      </p>
+      <p>
+        GML combina una sintaxis parecida a lenguajes como C, JavaScript o C#,  
+        pero está optimizado para el entorno de GameMaker, lo que permite controlar sprites, objetos, colisiones,  
+        animaciones y todo lo que ocurre dentro del juego.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>🧩 ¿Dónde se usa GML?</h2>
+      <p>
+        GML se usa en los <strong>eventos de los objetos</strong> dentro de GameMaker Studio.  
+        Cada objeto puede tener múltiples eventos, y dentro de ellos puedes escribir código GML  
+        para controlar su comportamiento. Los eventos más comunes son:
+      </p>
+
+      <ul>
+        <li><strong>Create</strong> — Se ejecuta una vez cuando el objeto aparece en el juego.</li>
+        <li><strong>Step</strong> — Se ejecuta en cada frame (actualización del juego).</li>
+        <li><strong>Draw</strong> — Dibuja el sprite o lo que el programador indique manualmente.</li>
+        <li><strong>Collision</strong> — Detecta cuando dos objetos se tocan.</li>
+        <li><strong>Alarm</strong> — Se usa para acciones temporizadas.</li>
+      </ul>
+    </section>
+
+    <section class="bloque">
+      <h2>⚙️ Estructura básica de un objeto en GML</h2>
+      <p>
+        Imagina un jugador en un juego de plataformas. Su objeto (por ejemplo, <code>objPlayer</code>) podría tener este código:
+      </p>
+
+      <h3>Evento Create:</h3>
+      <pre>
+speed = 4;
+jump_power = -8;
+gravity = 0.4;
+vspeed = 0;
+hspeed = 0;
+      </pre>
+
+      <h3>Evento Step:</h3>
+      <pre>
+#region Movimiento Horizontal
+var move = keyboard_check(vk_right) - keyboard_check(vk_left);
+hspeed = move * speed;
+#endregion
+
+#region Saltar
+if (place_meeting(x, y + 1, objGround)) {
+    if (keyboard_check_pressed(vk_space)) {
+        vspeed = jump_power;
+    }
+}
+#endregion
+
+#region Gravedad
+vspeed += gravity;
+if (!place_meeting(x, y + vspeed, objGround)) {
+    y += vspeed;
+} else {
+    while(!place_meeting(x, y + sign(vspeed), objGround)) {
+        y += sign(vspeed);
+    }
+    vspeed = 0;
+}
+#endregion
+
+x += hspeed;
+      </pre>
+
+      <p>
+        Este código permite al jugador moverse y saltar de forma básica.  
+        Lo mejor de GML es que puedes ir agregando más regiones, variables y scripts personalizados fácilmente.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>📦 Variables comunes en GML</h2>
+      <p>
+        GML ofrece muchas variables internas que puedes usar directamente.  
+        Algunas de las más usadas son:
+      </p>
+
+      <ul>
+        <li><strong>x, y:</strong> Posición del objeto en el room (horizontal y vertical).</li>
+        <li><strong>hspeed, vspeed:</strong> Velocidad horizontal y vertical.</li>
+        <li><strong>image_index:</strong> Frame actual del sprite animado.</li>
+        <li><strong>image_speed:</strong> Velocidad de la animación.</li>
+        <li><strong>sprite_index:</strong> Define qué sprite se muestra.</li>
+        <li><strong>alarm[0...11]:</strong> Temporizadores para eventos programados.</li>
+        <li><strong>keyboard_check(key):</strong> Detecta si una tecla está presionada.</li>
+      </ul>
+    </section>
+
+    <section class="bloque">
+      <h2>🧠 Funciones útiles</h2>
+      <p>
+        Algunas funciones comunes que todo desarrollador de GameMaker usa:
+      </p>
+
+      <pre>
+// Detección de colisión
+if (place_meeting(x, y + 1, objGround)) {
+    // El objeto está tocando el suelo
+}
+
+// Crear un nuevo objeto
+instance_create_layer(x, y, "Instances", objBullet);
+
+// Eliminar el objeto actual
+instance_destroy();
+
+// Cambiar de room
+room_goto(Room_2);
+      </pre>
+
+      <p>
+        GameMaker tiene cientos de funciones más para partículas, audio, efectos, físicas y shaders.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>🎨 Sprites y animaciones</h2>
+      <p>
+        Cada objeto en GML puede tener un <strong>sprite</strong> (imagen o animación).  
+        Puedes cambiarlo desde el editor visual o mediante código, por ejemplo:
+      </p>
+
+      <pre>
+if (keyboard_check(vk_right)) {
+    sprite_index = spr_player_walk;
+    image_xscale = 1;
+} else if (keyboard_check(vk_left)) {
+    sprite_index = spr_player_walk;
+    image_xscale = -1;
+} else {
+    sprite_index = spr_player_idle;
+}
+      </pre>
+
+      <p>
+        Esto hace que el personaje use un sprite distinto al moverse y otro al quedarse quieto,  
+        además de voltearlo cuando camina en dirección contraria.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>💡 Scripts y funciones personalizadas</h2>
+      <p>
+        En GameMaker puedes crear <strong>scripts</strong>, que son funciones definidas por ti.  
+        Se usan para mantener tu código ordenado y reutilizable.  
+        Por ejemplo:
+      </p>
+
+      <pre>
+/// @function scrApplyGravity(obj)
+/// @param obj - El objeto al que se le aplica gravedad
+function scrApplyGravity(obj) {
+    if (!place_meeting(obj.x, obj.y + obj.vspeed, objGround)) {
+        obj.vspeed += obj.gravity;
+        obj.y += obj.vspeed;
+    } else {
+        obj.vspeed = 0;
+    }
+}
+      </pre>
+
+      <p>
+        Luego puedes llamarlo desde cualquier objeto:
+      </p>
+
+      <pre>
+scrApplyGravity(self);
+      </pre>
+    </section>
+
+    <section class="bloque">
+      <h2>🚀 Ventajas de usar GML</h2>
+      <ul>
+        <li>✅ Muy fácil de aprender, incluso sin experiencia previa en programación.</li>
+        <li>✅ Tiene un entorno visual que acelera el desarrollo.</li>
+        <li>✅ Permite exportar a múltiples plataformas (Windows, Android, HTML5, etc.).</li>
+        <li>✅ Gran comunidad y muchos tutoriales disponibles.</li>
+        <li>✅ Permite hacer desde juegos simples hasta títulos profesionales.</li>
+      </ul>
+    </section>
+
+    <section class="bloque">
+      <h2>🧱 Ejemplo completo: enemigo con patrulla</h2>
+      <p>
+        Este ejemplo muestra un enemigo que camina entre dos puntos y se detiene un momento al llegar a cada extremo:
+      </p>
+
+      <pre>
+#region Patrullaje
+if (wait <= 0) {
+    sprite_index = sprEnemyWalk;
+    image_xscale = dir;
+    x += dir * 2;
+
+    if (dir == 1 && x >= x2) {
+        dir = -1;
+        sprite_index = sprEnemyIdle;
+        wait = room_speed * 2;
+    } else if (dir == -1 && x <= x1) {
+        dir = 1;
+        sprite_index = sprEnemyIdle;
+        wait = room_speed * 2;
+    }
+} else {
+    wait -= 1;
+}
+#endregion
+      </pre>
+    </section>
+
+    <section class="bloque">
+      <h2>🏁 Conclusión</h2>
+      <p>
+        GML es un lenguaje diseñado con los videojuegos en mente.  
+        No necesitas ser un experto para crear algo divertido, pero si profundizas,  
+        descubrirás que tiene el poder suficiente para hacer proyectos grandes y complejos.  
+        Es ideal para principiantes, estudiantes, o creadores que buscan rapidez y control en un solo entorno.
+      </p>
+      <p>
+        Ya sea para crear un simple juego de plataformas o una aventura con cientos de niveles,  
+        GML es una herramienta poderosa y flexible que pone la creatividad al frente del desarrollo.
+      </p>
+    </section>
+
+    <a href="C:/Users/Gateway/Desktop/paginas/studios/principal.html" class="boton">⬅ Volver a la página principal</a>
+  </main>
+</body>
+</html>
